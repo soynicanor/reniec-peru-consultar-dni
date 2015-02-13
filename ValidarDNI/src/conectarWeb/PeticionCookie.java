@@ -88,9 +88,14 @@ public class PeticionCookie {
                 if (linea >= 154 && linea <= 156) {
                     answer.append(" ");
                     answer.append(line.trim());
+                } else if (linea == 160 && answer.toString().trim().isEmpty()) {
+                    answer.append(prepararRpta(line));
+                } else if (linea == 166 && answer.toString().trim().isEmpty()) {
+                    answer.append(prepararRpta(line));
                 }
-                //System.out.println(linea + " == " + line.trim());
-                linea++;
+                if (linea++ > 166) {
+                    break;
+                }
             }
             writer.close();
             reader.close();
@@ -108,5 +113,11 @@ public class PeticionCookie {
             System.out.println("No se puede asignar la cookie " + e);
             throw e;
         }
+    }
+
+    private String prepararRpta(String rpta) {
+        rpta = rpta.trim();
+        rpta = rpta.substring(rpta.indexOf(">") + 1);
+        return rpta;
     }
 }
