@@ -1,0 +1,2 @@
+El proyecto se conecta a la página web de la Reniec de Perú, y permite ingresar el DNI con el teclado así como un captcha una sola vez.
+En caso el programa este inactivo mucho tiempo el captcha expirará y será necesario cerrar y abrir nuevamente el programa.
